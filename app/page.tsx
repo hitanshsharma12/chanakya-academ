@@ -35,16 +35,6 @@ export default function HomePage() {
       <Header onBook={openCoaching} />
       <Hero onBookCoaching={openCoaching} onBookLibrary={openLibrary} />
 
-      <section className="px-4 pb-6 pt-2 md:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d2af62]">Why parents trust us</p>
-          <SectionHeading
-            align="center"
-            title="Serious learning environment, premium feel, visible results"
-            description={`Students at ${contact.academyName} get disciplined classes, quiet library access, daily support and a modern website that looks premium on every screen.`}
-          />
-        </div>
-      </section>
 
       <CoursesSection onBook={(title) => openCoaching(title)} />
       <AchievementsSection />
