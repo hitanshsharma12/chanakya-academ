@@ -4,14 +4,13 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { CoursesSection } from "@/components/CoursesSection";
+import { StudentAccessSection } from "@/components/StudentAccessSection";
 import { AchievementsSection } from "@/components/AchievementsSection";
 import { StaffSection } from "@/components/StaffSection";
 import { MapSection } from "@/components/MapSection";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SectionHeading } from "@/components/SectionHeading";
-import { contact } from "@/lib/data";
 
 type ModalState = {
   open: boolean;
@@ -33,21 +32,35 @@ export default function HomePage() {
   return (
     <main className="relative overflow-x-hidden">
       <Header onBook={openCoaching} />
-      <Hero onBookCoaching={openCoaching} onBookLibrary={openLibrary} />
 
+      <Hero
+        onBookCoaching={openCoaching}
+        onBookLibrary={openLibrary}
+      />
 
-      <CoursesSection onBook={(title) => openCoaching(title)} />
+      <CoursesSection
+        onBook={(title) => openCoaching(title)}
+      />
+
+      <StudentAccessSection whatsappNumber="7018796714" />
+
       <AchievementsSection />
+
       <StaffSection />
+
       <MapSection />
+
       <Footer />
+
       <WhatsAppButton />
 
       <BookingModal
         open={modal.open}
         type={modal.type}
         selectedCourse={modal.course}
-        onClose={() => setModal((prev) => ({ ...prev, open: false }))}
+        onClose={() =>
+          setModal((prev) => ({ ...prev, open: false }))
+        }
       />
     </main>
   );
